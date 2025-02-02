@@ -3,12 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To-Do List</title>
+    <title>To-Do List with Tabs</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
-      <h1>To-Do List</h1>
+      <nav>
+        <button class="tab-btn active" data-tab="daily">Daily Plan</button>
+        <button class="tab-btn" data-tab="weekly">Weekly Plan</button>
+        <button class="tab-btn" data-tab="monthly">Monthly Plan</button>
+        <button class="tab-btn" data-tab="goals">Goals</button>
+      </nav>
       <div class="note-editor">
         <textarea
           id="note-input"
