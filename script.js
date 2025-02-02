@@ -3,7 +3,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const addNoteBtn = document.getElementById('add-note-btn');
     const notesList = document.getElementById('notes-list');
     const tabButtons = document.querySelectorAll('.tab-btn');
+    const body = document.querySelector('body');  // Reference to the body element
     let activeTab = 'daily';
+
+    // Define background colors for each tab
+    const tabColors = {
+        daily: 'rgba(0, 255, 0, 0.05)', // deep green with 20% opacity
+        weekly: 'rgba(0, 0, 255, 0.05)', // deep blue with 20% opacity
+        monthly: 'rgba(255, 0, 0, 0.05)', // dark blue with 20% opacity
+        goals: 'rgba(255, 255, 0, 0.1)', // deep yellow with 20% opacity
+    };
 
     // Load notes from local storage
     const loadNotes = () => {
@@ -55,27 +64,13 @@ document.addEventListener('DOMContentLoaded', () => {
             e.target.classList.add('active');
             activeTab = e.target.getAttribute('data-tab');
             loadNotes();
+
+            // Change body background color based on the active tab
+            body.style.backgroundColor = tabColors[activeTab];
         });
     });
 
-    // Initial load
+    // Initial load and setting the background color for the active tab
     loadNotes();
-
-    // Apply navbar styling dynamically
-    document.querySelector('.nav-bar').style.display = 'flex';
-    document.querySelector('.nav-bar').style.justifyContent = 'space-around';
-    document.querySelector('.nav-bar').style.padding = '10px';
-    document.querySelector('.nav-bar').style.backgroundColor = '#333';
-    document.querySelector('.nav-bar').style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.style.padding = '10px 20px';
-        btn.style.color = '#fff';
-        btn.style.border = 'none';
-        btn.style.cursor = 'pointer';
-        btn.style.transition = 'background 0.3s';
-    });
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.addEventListener('mouseenter', () => btn.style.backgroundColor = '#555');
-        btn.addEventListener('mouseleave', () => btn.style.backgroundColor = '');
-    });
+    body.style.backgroundColor = tabColors[activeTab];
 });
