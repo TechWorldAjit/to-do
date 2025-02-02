@@ -15,11 +15,28 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 400px;
+  text-align: center;
 }
 
-h1 {
-  text-align: center;
-  color: #333;
+nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.tab-btn {
+  padding: 10px;
+  background-color: #2b216734;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  flex: 1;
+  margin: 0 2px;
+}
+
+.tab-btn.active {
+  background-color: #28a745;
 }
 
 .note-editor {
@@ -57,21 +74,20 @@ h1 {
 
 .note {
   background-color: #f9f9f9;
-  padding: 10px;
+  padding: 5px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   position: relative;
+  text-align: left;
 }
-
-.note p {
-  margin: 0;
+.note .p {
+  margin: 0px;
 }
-
 .delete-btn {
   position: absolute;
-  top: 6.5px;
-  right: 10px;
+  top: 3px;
+  right: 2px;
   background-color: #dc3545;
   color: #fff;
   border: none;
@@ -82,4 +98,10 @@ h1 {
 
 .delete-btn:hover {
   background-color: #c82333;
+}
+
+div.note p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin: 1px;
 }
